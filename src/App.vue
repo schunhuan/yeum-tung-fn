@@ -11,14 +11,14 @@
           </b-navbar-item>
         </template>
         <template #start>
-          <b-navbar-item
+          <!-- <b-navbar-item
             tag="router-link"
             v-for="(menu, i) in menulist"
             :key="i"
             :to="menu.href"
           >
             {{ menu.name }}
-          </b-navbar-item>
+          </b-navbar-item> -->
         </template>
       </b-navbar>
     </template>
