@@ -1,19 +1,50 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <template>
+      <b-navbar fixed-top>
+        <template #brand>
+          <b-navbar-item tag="router-link" :to="{ path: '/' }">
+            <img
+              src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
+              alt="Lightweight UI components for Vue.js based on Bulma"
+            />
+          </b-navbar-item>
+        </template>
+        <template #start>
+          <b-navbar-item
+            tag="router-link"
+            v-for="(menu, i) in menulist"
+            :key="i"
+            :to="menu.href"
+          >
+            {{ menu.name }}
+          </b-navbar-item>
+        </template>
+      </b-navbar>
+    </template>
+    <div class="container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: {},
+  data: () => ({
+    menulist: [
+      {
+        name: "Home",
+        href: "/",
+      },
+      {
+        name: "transactionList",
+        href: "/transactionList",
+      },
+    ],
+  }),
+};
 </script>
 
 <style>
